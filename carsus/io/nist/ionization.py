@@ -5,6 +5,7 @@ http://physics.nist.gov/PhysRefData/ASD/ionEnergy.html
 
 import logging
 import requests
+from requests.adapters import HTTPAdapter, Retry
 import numpy as np
 import pandas as pd
 
@@ -62,7 +63,10 @@ def download_ionization_energies(
     data = {k:"on" if v is True else v for k, v in data.items()}
 
     logger.info("Downloading ionization energies from the NIST Atomic Spectra Database.")
-    r = requests.post(IONIZATION_ENERGIES_URL, data=data)
+    s = requests.Session()
+    retries = Retry(total=10, backoff_factor=1, status_forcelist=[ 502, 503, 504 ,400, 495])
+    s.mount('https://', HTTPAdapter(max_retries=retries))
+    r = s.post(IONIZATION_ENERGIES_URL, data=data)
     return r.text
 
 

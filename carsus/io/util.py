@@ -3,6 +3,8 @@ import requests
 from io import BytesIO
 from pyparsing import ParseResults
 from carsus.util import convert_atomic_number2symbol
+import requests
+from requests.adapters import HTTPAdapter, Retry
 
 def to_flat_dict(tokens, parent_key='', sep='_'):
     """
@@ -95,7 +97,10 @@ def read_from_buffer(fname):
         data from text file, MD5 checksum
     """    
     if fname.startswith("http"):
-        response = requests.get(fname)
+        s = requests.Session()
+        retries = Retry(total=10, backoff_factor=1, status_forcelist=[ 502, 503, 504 ,400, 495])
+        s.mount('https://', HTTPAdapter(max_retries=retries))
+        response = s.get(fname)
         data = response.content
 
     else:

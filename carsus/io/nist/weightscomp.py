@@ -5,6 +5,7 @@ http://www.nist.gov/pml/data/comp.cfm
 
 import logging
 import requests
+from requests.adapters import HTTPAdapter, Retry
 import pandas as pd
 
 from bs4 import BeautifulSoup
@@ -47,7 +48,11 @@ def download_weightscomp(ascii='ascii2', isotype='some'):
 
     """
     logger.info("Downloading data from the NIST Atomic Weights and Isotopic Compositions Database.")
-    r = requests.get(WEIGHTSCOMP_URL, params={'ascii': ascii, 'isotype': isotype})
+    s = requests.Session()
+    retries = Retry(total=10, backoff_factor=1, status_forcelist=[ 502, 503, 504 ,400, 495])
+    s.mount('https://', HTTPAdapter(max_retries=retries))
+
+    r = s.get(WEIGHTSCOMP_URL, params={'ascii': ascii, 'isotype': isotype})
     soup = BeautifulSoup(r.text, 'html5lib')
     pre_text_data = soup.pre.get_text()
     pre_text_data = pre_text_data.replace(u'\xa0', u' ')  # replace non-breaking spaces with spaces
