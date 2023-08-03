@@ -105,6 +105,8 @@ jobs:
 
       - name: Install package
         run: pip install -e .
+      
+      - run: pytest --trace-config
 
       - name: Run tests
         run: pytest carsus ${{ env.PYTEST_FLAGS }}
