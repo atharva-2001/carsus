@@ -105,6 +105,8 @@ jobs:
 
       - name: Install package
         run: pip install -e .
+    
+      - run: cat /usr/share/miniconda3/envs/carsus/lib/python3.7/site-packages/pytest_arraydiff/plugin.py
       
       - run: pytest --trace-config
 
