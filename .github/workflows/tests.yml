@@ -121,6 +121,18 @@ jobs:
         with:
           name: base output
           path: carsus/io/tests/test_output_base.html
+        
+      - name: Upload gen
+        uses: actions/upload-artifact@v2
+        with:
+          name: gen
+          path: carsus/io/tests/gen.csv
+        
+      - name: Upload sav
+        uses: actions/upload-artifact@v2
+        with:
+          name: sav
+          path: carsus/io/tests/sav.csv
 
       - name: Upload to Codecov
         run: bash <(curl -s https://codecov.io/bash)
