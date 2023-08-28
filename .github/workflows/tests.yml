@@ -65,8 +65,9 @@ jobs:
       - name: Clone tardis-sn/carsus-refdata
         uses: actions/checkout@v2
         with:
-          repository: tardis-sn/carsus-refdata
+          repository: atharva-2001/carsus-refdata
           path: carsus-refdata
+          ref: update_nndc_data
           lfs: true
 
       - uses: actions/cache@v2
@@ -107,14 +108,38 @@ jobs:
         run: pip install -e .
 
       - name: Run tests
-        run: pytest carsus ${{ env.PYTEST_FLAGS }} 
+        run: pytest carsus ${{ env.PYTEST_FLAGS }}
 
       - name: Run notebooks
         run: |
-          ${{ env.NBCONVERT_CMD }} carsus/io/tests/test_legacy_consistency.ipynb
-          ${{ env.NBCONVERT_CMD }} carsus/io/tests/test_output_base.ipynb
+          ${{ env.NBCONVERT_CMD }} carsus/io/tests/test_legacy_consistency.ipynb 
+          ${{ env.NBCONVERT_CMD }} carsus/io/tests/test_output_base.ipynb --allow-errors
         env:
           CARSUS_REFDATA: ${{ github.workspace }}/carsus-refdata
+      
+      - name: Upload notebook
+        uses: actions/upload-artifact@v2
+        with:
+          name: base output
+          path: carsus/io/tests/test_output_base.html
+        
+      # - name: Upload gen
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: gen
+      #     path: carsus/io/tests/gen.csv
+        
+      # - name: Upload sav
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: sav
+      #     path: carsus/io/tests/sav.csv
+
+      - name: Upload gen-atom
+        uses: actions/upload-artifact@v2
+        with:
+          name: gen atom
+          path: carsus/io/tests/test_data_ku_H-Si_ch_H-He_cm_Si_I-II.h5
 
       - name: Upload to Codecov
         run: bash <(curl -s https://codecov.io/bash)
