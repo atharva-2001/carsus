@@ -108,7 +108,7 @@ jobs:
         run: pip install -e .
 
       - name: Run tests
-        run: pytest carsus/io/tests/test_cmfgen.py ${{ env.PYTEST_FLAGS }}  
+        run: pytest carsus ${{ env.PYTEST_FLAGS }}  
       
       - name: Upload arraydiff
         uses: actions/upload-artifact@v2
@@ -116,12 +116,12 @@ jobs:
           name: arraydiff data
           path: carsus-refdata/arraydiff
 
-      # - name: Run notebooks
-      #   run: |
-      #     ${{ env.NBCONVERT_CMD }} carsus/io/tests/test_legacy_consistency.ipynb
-      #     ${{ env.NBCONVERT_CMD }} carsus/io/tests/test_output_base.ipynb
-      #   env:
-      #     CARSUS_REFDATA: ${{ github.workspace }}/carsus-refdata
+      - name: Run notebooks
+        run: |
+          ${{ env.NBCONVERT_CMD }} carsus/io/tests/test_legacy_consistency.ipynb
+          ${{ env.NBCONVERT_CMD }} carsus/io/tests/test_output_base.ipynb
+        env:
+          CARSUS_REFDATA: ${{ github.workspace }}/carsus-refdata
 
       - name: Upload to Codecov
         run: bash <(curl -s https://codecov.io/bash)
