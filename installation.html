@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installation &mdash; carsus v0.1.dev689+g7588b53</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+  <title>Installation &mdash; carsus v0.1.dev723+g1fb3256</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+
+  
     <link rel="shortcut icon" href="_static/tardis_logo.ico"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -36,14 +38,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> carsus
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            carsus
           </a>
               <div class="version">
-                0.1.dev689+g7588b53
+                0.1.dev723+g1fb3256
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -68,6 +74,7 @@
 <li class="toctree-l1"><a class="reference internal" href="io/chianti.html">CHIANTI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="io/cmfgen.html">CMFGEN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="io/zeta.html">ZETA DATA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io/nndc.html">NNDC DATA</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Research with Carsus</span></p>
 <ul>
@@ -97,8 +104,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Installation</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installation</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -108,31 +115,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="installation">
+  <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h1>
 <section id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
@@ -157,7 +140,14 @@
 <section id="setup-the-environment">
 <h2>Setup the Environment<a class="headerlink" href="#setup-the-environment" title="Permalink to this heading"></a></h2>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>$ cd carsus
-$ conda env create -f carsus_env3.yml
+</pre></div>
+</div>
+<p>If you’re using GNU/Linux or Intel-based Mac installation then directly create the environment using the below command:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>$ conda env create -f carsus_env3.yml
+</pre></div>
+</div>
+<p>However, if you’re using M1-based Mac (Apple Silicon), then force conda to install Intel-based packages:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>$ CONDA_SUBDIR=osx-64 conda env create -f carsus_env3.yml
 </pre></div>
 </div>
 </section>
@@ -182,8 +172,8 @@ $ pip install -e .
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2016-2022, TARDIS Collaboration.
-      <span class="lastupdated">Last updated on 28 Oct 2022.
+    <p>&#169; Copyright 2016-2024, TARDIS Collaboration.
+      <span class="lastupdated">Last updated on 11 Jul 2024.
       </span></p>
   </div>
 

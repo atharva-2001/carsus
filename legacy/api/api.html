@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>API Reference &mdash; carsus v0.1.dev689+g7588b53</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <title>API Reference &mdash; carsus v0.1.dev723+g1fb3256</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+
+  
     <link rel="shortcut icon" href="../../_static/tardis_logo.ico"/>
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -35,14 +37,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> carsus
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            carsus
           </a>
               <div class="version">
-                0.1.dev689+g7588b53
+                0.1.dev723+g1fb3256
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -61,6 +67,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../io/chianti.html">CHIANTI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../io/cmfgen.html">CMFGEN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../io/zeta.html">ZETA DATA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../io/nndc.html">NNDC DATA</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Research with Carsus</span></p>
 <ul>
@@ -107,9 +114,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">SQL Interface</a> &raquo;</li>
-      <li>API Reference</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">SQL Interface</a></li>
+      <li class="breadcrumb-item active">API Reference</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/legacy/api/api.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -119,31 +126,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="api-reference">
+  <section id="api-reference">
 <span id="api"></span><h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this heading"></a></h1>
 <section id="module-io.base">
 <span id="carsus-io-base-module"></span><h2>carsus.io.base Module<a class="headerlink" href="#module-io.base" title="Permalink to this heading"></a></h2>
@@ -278,12 +261,15 @@ Its labeled tokens correspond to the columns of the <code class="xref py py-obj 
 <h3>Members<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py" id="carsus.io.nist.download_weightscomp">
-<span class="sig-prename descclassname"><span class="pre">carsus.io.nist.</span></span><span class="sig-name descname"><span class="pre">download_weightscomp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ascii</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ascii2'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isotype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'some'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#carsus.io.nist.download_weightscomp" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">carsus.io.nist.</span></span><span class="sig-name descname"><span class="pre">download_weightscomp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nist_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascii</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ascii2'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isotype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'some'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#carsus.io.nist.download_weightscomp" title="Permalink to this definition"></a></dt>
 <dd><p>Downloader function for the NIST Atomic Weights and Isotopic Compositions database</p>
 <p>Makes a GET request to download data; then extracts preformatted text</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
+<dt><strong>nist_url: bool</strong></dt><dd><p>If False, downloads data from the carsus-dat-nist repository,
+else, downloads data from the NIST Atomic Weights and Isotopic Compositions Database.</p>
+</dd>
 <dt><strong>ascii: str</strong></dt><dd><p>GET request parameter, refer to the NIST docs
 (default: ‘ascii’)</p>
 </dd>
@@ -304,7 +290,7 @@ Its labeled tokens correspond to the columns of the <code class="xref py py-obj 
 <dl class="py class">
 <dt class="sig sig-object py" id="carsus.io.nist.NISTWeightsCompPyparser">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">carsus.io.nist.</span></span><span class="sig-name descname"><span class="pre">NISTWeightsCompPyparser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grammar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">isotope</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">COLUMNS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#carsus.io.nist.NISTWeightsCompPyparser" title="Permalink to this definition"></a></dt>
-<dd><p>Class for parsers for the NIST Atomic Weights and Isotopic Compositions database</p>
+<dd><p>Class for parsers for the NIST Atomic Weights and Isotopic Compositions</p>
 <dl class="field-list simple">
 <dt class="field-odd">Attributes</dt>
 <dd class="field-odd"><dl class="simple">
@@ -339,7 +325,7 @@ Its labeled tokens correspond to the columns of the <code class="xref py py-obj 
 <dl class="py class">
 <dt class="sig sig-object py" id="carsus.io.nist.NISTWeightsCompIngester">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">carsus.io.nist.</span></span><span class="sig-name descname"><span class="pre">NISTWeightsCompIngester</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser_cls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NISTWeightsCompPyparser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">downloader</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">download_weightscomp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#carsus.io.nist.NISTWeightsCompIngester" title="Permalink to this definition"></a></dt>
-<dd><p>Class for ingesters for the NIST Atomic Weights and Isotopic Compositions database</p>
+<dd><p>Class for ingesters for the NIST Atomic Weights and Isotopic Compositions</p>
 <dl class="field-list simple">
 <dt class="field-odd">Attributes</dt>
 <dd class="field-odd"><dl class="simple">
@@ -388,8 +374,8 @@ Its labeled tokens correspond to the columns of the <code class="xref py py-obj 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2016-2022, TARDIS Collaboration.
-      <span class="lastupdated">Last updated on 28 Oct 2022.
+    <p>&#169; Copyright 2016-2024, TARDIS Collaboration.
+      <span class="lastupdated">Last updated on 11 Jul 2024.
       </span></p>
   </div>
 
